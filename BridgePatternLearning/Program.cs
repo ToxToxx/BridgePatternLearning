@@ -16,15 +16,14 @@ namespace BridgePatternLearning
 
             Console.WriteLine(new string('-', 25));
 
-            warrior.Weapon = new Bow();
+            warrior.Weapon = new BowWeapon();
             warrior.FightEnemy();
             warrior.TrainClass();
 
             Console.WriteLine(new string('-', 25));
-
-            warrior.Weapon = new Dagger();
-            warrior.FightEnemy();
-            warrior.TrainClass();
+            Class hunter = new HunterClass(new DaggerWeapon());
+            hunter.FightEnemy();
+            hunter.TrainClass();
 
         }
     }
@@ -48,7 +47,7 @@ namespace BridgePatternLearning
         }
     }
     //concrete implementation of a bow
-    class Bow : IWeapon
+    class BowWeapon : IWeapon
     {
         public void Attack()
         {
@@ -62,7 +61,7 @@ namespace BridgePatternLearning
         }
     }
     //concrete implementation of a dagger
-    class Dagger : IWeapon
+    class DaggerWeapon : IWeapon
     {
         private int DaggerCount = 10;
         public void Attack()
